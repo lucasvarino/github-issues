@@ -10,7 +10,7 @@ by adding `issues` to your list of dependencies in `mix.exs`:
 ```elixir
 def deps do
   [
-    {:issues, "~> 0.1.0"}
+    {:github_issues, "~> 0.1.0"}
   ]
 end
 ```
