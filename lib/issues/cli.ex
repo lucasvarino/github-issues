@@ -47,5 +47,15 @@ defmodule Issues.CLI do
 
   def process({user, repo, _count}) do
     Issues.GithubIssues.fetch(user, repo)
+    |> decode_response()
+  end
+
+  defp decode_response({:ok, body}) do
+    body
+  end
+
+  defp decode_response({:error, error}) do
+    IO.puts("Erro ao fazer a requisição para o github: #{error["message"]}")
+    System.halt(2)
   end
 end
